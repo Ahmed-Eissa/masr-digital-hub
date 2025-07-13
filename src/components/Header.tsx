@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { LogIn, LogOut, User } from "lucide-react";
+import { LogIn, LogOut, User, FileText } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import egyptLogo from "@/assets/egypt-telecom-logo.png";
 
 export function Header() {
@@ -11,7 +12,7 @@ export function Header() {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo and Title */}
-          <div className="flex items-center gap-4">
+          <Link to="/" className="flex items-center gap-4 hover:opacity-80 transition-opacity">
             <img 
               src={egyptLogo} 
               alt="وزارة الاتصالات المصرية" 
@@ -25,7 +26,24 @@ export function Header() {
                 وزارة الاتصالات وتكنولوجيا المعلومات
               </p>
             </div>
-          </div>
+          </Link>
+
+          {/* Navigation */}
+          <nav className="hidden md:flex items-center gap-6">
+            <Link 
+              to="/" 
+              className="text-foreground hover:text-primary transition-colors font-medium"
+            >
+              الرئيسية
+            </Link>
+            <Link 
+              to="/form" 
+              className="text-foreground hover:text-primary transition-colors font-medium flex items-center gap-2"
+            >
+              <FileText className="w-4 h-4" />
+              النموذج
+            </Link>
+          </nav>
 
           {/* User Actions */}
           <div className="flex items-center gap-4">
